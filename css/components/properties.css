@@ -1,0 +1,191 @@
+/* Flexbox Properties */
+.flex {
+    display: flex;
+}
+
+.flex-row {
+    flex-direction: row;
+}
+
+.flex-column {
+    flex-direction: column;
+}
+
+.justify-center {
+    justify-content: center;
+}
+
+.align-center {
+    align-items: center;
+}
+
+.flex-wrap {
+    flex-wrap: wrap;
+}
+
+/* Grid Properties */
+.grid {
+    display: grid;
+}
+
+.grid-cols-2 {
+    grid-template-columns: repeat(2, 1fr);
+}
+
+.grid-cols-3 {
+    grid-template-columns: repeat(3, 1fr);
+}
+
+.grid-cols-4 {
+    grid-template-columns: repeat(4, 1fr);
+}
+
+.grid-gap-sm {
+    gap: 10px;
+}
+
+.grid-gap-md {
+    gap: 15px;
+}
+
+/* Margin and Padding */
+.m-0 {
+    margin: 0;
+}
+
+.m-1 {
+    margin: 4px;
+}
+
+.m-2 {
+    margin: 8px;
+}
+
+.m-3 {
+    margin: 12px;
+}
+
+.p-0 {
+    padding: 0;
+}
+
+.p-1 {
+    padding: 4px;
+}
+
+.p-2 {
+    padding: 8px;
+}
+
+.p-3 {
+    padding: 12px;
+}
+
+/* Positioning */
+.relative {
+    position: relative;
+}
+
+.absolute {
+    position: absolute;
+}
+
+.fixed {
+    position: fixed;
+}
+
+.sticky {
+    position: sticky;
+}
+
+/* Background and Color */
+.bg-primary {
+    background-color: #ffffff;
+}
+
+.bg-secondary {
+    background-color: #000000;
+}
+
+.text-white {
+    color: #ffffff;
+}
+
+/* Width and Height */
+.w-full {
+    width: 100%;
+}
+
+.h-full {
+    height: 100%;
+}
+
+.w-50 {
+    width: 50%;
+}
+
+.h-50 {
+    height: 50%;
+}
+
+/* Borders */
+.border {
+    border: 1px solid #000000;
+}
+
+.rounded {
+    border-radius: 4px;
+}
+
+/* Typography */
+.text-lg {
+    font-size: 1.25rem; /* Large text */
+}
+
+.text-center {
+    text-align: center;
+}
+
+.font-bold {
+    font-weight: bold;
+}
+
+/* Display */
+.hidden {
+    display: none;
+}
+
+.block {
+    display: block;
+}
+
+.inline-block {
+    display: inline-block;
+}
+
+/* Buttons */
+.btn-primary {
+    background-color: #007BFF;
+    padding: 9px 15px;
+    border-radius: .25rem;
+    text-align: center;
+    vertical-align: middle;
+}
+.btn-success {
+    background-color: #28A745;
+    padding: 9px 15px;
+    border-radius: .25rem;
+    text-align: center;
+    vertical-align: middle;
+}
+.btn-danger {
+    color: white;
+    outline: none;
+    border: none;
+    background-color: #DC3545;
+    padding: 9px 15px;
+    border-radius: .25rem;
+    text-align: center;
+    vertical-align: middle;
+    cursor: pointer;
+}
