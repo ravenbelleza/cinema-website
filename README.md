@@ -27,12 +27,3 @@ ThesisTix is a cinema ticket booking website. It allows users to browse movies, 
 ### Other Tools
 - Version control: Git
 - Design tools: Figma, Canva
-
-## Installation
-
-1. Clone the repository:
-   ```bash
-   git clone https://github.com/[USERNAME]/ThesisTix.git
-
-   ```bash
-   cd ThesisTix
