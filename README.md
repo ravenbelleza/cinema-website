@@ -32,6 +32,7 @@ ThesisTix is a cinema ticket booking website. It allows users to browse movies, 
 - Open VScode and then ctrl + ~
 
 - in terminal:
-    C:\Users\Admin> cd C:\Users\Admin "to change directory to desktop location"
-    C:\Users\Admin\Desktop> git clone https://github.com/ravenbelleza/cinema-website.git "then"
-    C:\Users\Admin\Dekstop> cd cinema-website
+
+C:\Users\Admin> cd C:\Users\Admin "to change directory to desktop location"
+C:\Users\Admin\Desktop> git clone https://github.com/ravenbelleza/cinema-website.git "then"
+C:\Users\Admin\Dekstop> cd cinema-website
