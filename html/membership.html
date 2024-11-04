@@ -12,6 +12,9 @@
     <!-- Bootstrap icon -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 
+    <!-- Animation -->
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+
     <!-- Favicon -->
     <link rel="icon" type="image/svg" href="/assets/icons/favicon.svg">
 
@@ -92,18 +95,18 @@
         <!-- Membership Container -->
         <div class="membership-container">
             <div class="membership-card-container">
-                <div class="membership-card">
+                <div class="membership-card" data-aos="fade-right">
                     <img src="/assets/images/membership-card.png" alt="Membership Card" height="300px">
                 </div>
 
-                <div class="membership-quotes">
+                <div class="membership-quotes" data-aos="fade-left">
                     <h1 class="heading-one">Enjoy perks and Privileges<br><span>when you sign up</span></h1>
                 </div>
             </div>
 
             <div class="membership-form-container">
                 <div class="membership-form">
-                    <div class="form-quotes">
+                    <div class="form-quotes" data-aos="fade-right">
                         <h3 class="heading-three">
                             This is an excellent membership for you to join
                         </h3>
@@ -111,7 +114,7 @@
                         <button class="btn btn-danger" onclick="toggleContainers()">Sign Up</button>
                     </div>
 
-                    <form method="POST">
+                    <form method="POST" data-aos="fade-left">
                         <h2 class="heading-two">
                             THESISTIX MEMBERSHIP
                         </h2>
@@ -148,22 +151,169 @@
                     </div>
                 </div>
             </div>
+
+            <div class="application-tab">
+                <span id="basic-member" class="tab active">BASIC MEMBER</span>
+                <span id="premium-member" class="tab inactive">PREMIUM MEMBER</span>
+            </div>
+            <div class="divider__application"></div>
             
-            <div class="membership-application-form">
-                <div class="application-tab">
-                    <span id="basic-member" class="tab active">BASIC MEMBER</span>
-                    <span id="premium-member" class="tab inactive">PREMIUM MEMBER</span>
+            <div class="basic__form">
+                <div class="membership-application-form">
+                    <div class="application-form">
+                        <div class="form-header">
+                            <h1 class="heading-one">THESISTIX Cinema Basic Membership</h1>
+                            <p class="form-description">Sign up now and start buying tickets online!</p>
+                        </div>
+        
+                        <div class="application-signup">
+                            <div class="application-signup-container">
+                                <h2 class="heading-two">FREE</h2>
+                                <a href="" id="signup-link">Sign Up Now</a>
+                            </div>
+                        </div>
+        
+                        <div class="application-description">
+                            <p>Simply sign up and start earning points every time you watch movies!</p>
+                            <p>What you get:</p>
+                            <br>
+        
+                            <div class="description-checklist">
+                                <div class="checklist"><img src="/assets/icons/check.svg"><p>Easy Online Ticket Booking</p></div>
+                                <div class="checklist"><img src="/assets/icons/check.svg"><p>Reduced Prices on Snacks</p></div>
+                                <div class="checklist"><img src="/assets/icons/check.svg"><p>Get a special discount when purchasing 2 or 3 tickets in a single transaction, making it more affordable for <br> group movie outings.</p></div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <div class="divider__application"></div>
+    
+                <!-- Form-Group -->
+                <div class="membership__form">
+                    <div class="form__container">
+                        <h2 class="heading-two">
+                            ThesisTix Basic Member - Free
+                        </h2>
+    
+                        <h1 class="heading-one">PERSONAL DETAILS</h1>
+                        <form class="personal__form" method="POST">
+                            <div class="form__column">
+                                <div class="form__group">
+                                    <label for="prefix">Prefix*</label>
+                                    <input type="text" name="prefix" id="prefix" placeholder="Prefix">
+                                </div>
+                                
+                                <div class="form__group">
+                                    <label for="first-name">First Name*</label>
+                                    <input type="text" name="first-name" id="first-name">
+                                </div>
+                                
+                                <div class="form__group">
+                                    <label for="last-name">Last Name*</label>
+                                    <input type="text" name="last-name" id="last-name">
+                                </div>
+                                
+                                <div class="form__group">
+                                    <label for="birthday">Birthday*</label>
+                                    <input type="month" name="birthday" id="birthday">
+                                </div>
+                            </div>
+                            
+                            <div class="form__column">
+                                <div class="form__group">
+                                    <label for="age">Age Range*</label>
+                                    <input type="number" name="age" id="age" min="18" max="100" required>
+                                </div>
+                                
+                                <div class="form__group">
+                                    <label for="household">Household Size*</label>
+                                    <input type="number" name="household" id="household" required>
+                                </div>
+                            </div>
+                        </form>
+                        <div class="form__divider"></div>
+                        <h1 class="heading-one">CONTACT DETAILS</h1>
+                        <form class="contact__form" method="POST">
+                            <div class="form__column">
+                                <div class="form__group">
+                                    <label for="email">Email*</label>
+                                    <input type="email" name="email" id="email" required>
+                                </div>
+    
+                                <div class="form__group">
+                                    <label for="phone_number">Mobile Number*</label>
+                                    <input type="number" name="number" id="number" oninput="phoneNumber(this)">
+                                </div>
+                            </div>
+    
+                            <div class="form__column">
+                                <div class="form__group">
+                                    <label for="basic-province">Province*</label>
+                                    <select id="basic-province" onchange="updateCityDropdown('basic')">
+                                        <option value="">Select Province</option>
+                                    </select>
+                                </div>
+                                <div class="form__group">
+                                    <label for="basic-city">City*</label>
+                                    <select id="basic-city" onchange="updateBarangayDropdown('basic')">
+                                        <option value="">Select City/Municipality</option>
+                                    </select>
+                                </div>
+                                <div class="form__group">
+                                    <label for="basic-barangay">Barangay*</label>
+                                    <select id="basic-barangay">
+                                        <option value="">Select Barangay</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </form>
+                        <div class="form__divider"></div>
+                        <h1 class="heading-one">CREATE LOGIN</h1>
+                        <form class="create__login" method="post">
+                            <div class="form__column">
+                                <div class="form__group">
+                                    <label for="password">Password*</label>
+                                    <input type="password" name="password" id="password" required>
+                                </div>
+                                
+                                <div class="form__group">
+                                    <label for="first-name">Confirm Password*</label>
+                                    <input type="password" name="password" id="password" required>
+                                </div>
+                            </div>
+                        </form>
+                        
+                        <div class="checkbox">
+                            <input type="checkbox"><p>By providing your personal data and clicking Submit, you <a href="">Consent</a> and that you have read our <a href="#">Data Privacy Policy.</a></p>
+                        </div>
+    
+                        <div class="checkbox">
+                            <input type="checkbox"><p>I have read and understood the <a href="#">Terms and Conditions.</a></p>
+                        </div>
+    
+                        <div class="checkbox">
+                            <input type="checkbox"><p>Get the latest and special offers, coupons and vouchers or other promotions from Thesistix. To know more click <a href="">here.</a></p>
+                        </div>
+    
+                        <div class="form__login">
+                            <button class="btn btn-danger">LOGIN</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Premium Perks -->
+        <div class="premium-form" style="display: none;">
+            <div class="membership-application-form">
                 <div class="application-form">
                     <div class="form-header">
-                        <h1 class="heading-one">THESISTIX Cinema Basic Membership</h1>
-                        <p class="form-description">Sign up now and start buying tickets online!</p>
+                        <h1 class="heading-one">THESISTIX Cinema Premium Membership</h1>
+                        <p class="form-description">Join at this membership level and recieve great benefits!</p>
                     </div>
     
                     <div class="application-signup">
                         <div class="application-signup-container">
-                            <h2 class="heading-two">FREE</h2>
+                            <h2 class="heading-two">₱500.00</h2>
                             <a href="" id="signup-link">Sign Up Now</a>
                         </div>
                     </div>
@@ -174,19 +324,19 @@
                         <br>
     
                         <div class="description-checklist">
-                            <div class="checklist"><img src="/assets/icons/check.svg"><p>Easy Online Ticket Booking</p></div>
-                            <div class="checklist"><img src="/assets/icons/check.svg"><p>Reduced Prices on Snacks</p></div>
-                            <div class="checklist"><img src="/assets/icons/check.svg"><p>Get a special discount when purchasing 2 or 3 tickets in a single transaction, making it more affordable for <br> group movie outings.</p></div>
+                            <div class="checklist"><img src="/assets/icons/check.svg"><p>Enjoy a set number of free tickets each month, letting you watch more movies at no extra cost.</p></div>
+                            <div class="checklist"><img src="/assets/icons/check.svg"><p>Book tickets for blockbuster movies and special events before they're available to the general public.</p></div>
+                            <div class="checklist"><img src="/assets/icons/check.svg"><p>Upgrade to IMAX, 3D, or other premium formats for free or at a discounted rate.</p></div>
+                            <div class="checklist"><img src="/assets/icons/check.svg"><p>Get free popcorn, drinks, or other snacks with every visit, making your experience even more enjoyable.</p></div>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <!-- Form-Group -->
             <div class="membership__form">
                 <div class="form__container">
                     <h2 class="heading-two">
-                        ThesisTix Basic Member - Free
+                        ThesisTix Premium Member - ₱500.00
                     </h2>
 
                     <h1 class="heading-one">PERSONAL DETAILS</h1>
@@ -242,22 +392,22 @@
 
                         <div class="form__column">
                             <div class="form__group">
-                                <label for="province">Province*</label>
-                                <select id="province" onchange="updateCityDropdown()">
+                                <label for="premium-province">Province*</label>
+                                <select id="premium-province" onchange="updateCityDropdown('premium')">
                                     <option value="">Select Province</option>
+                                </select>
+                            </div>
+                            
+                            <div class="form__group">
+                                <label for="premium-city">City*</label>
+                                <select id="premium-city" onchange="updateBarangayDropdown('premium')">
+                                    <option value="">Select City/Municipality</option>
                                 </select>
                             </div>
 
                             <div class="form__group">
-                                <label for="city">City*</label>
-                                <select id="city" onchange="updateBarangayDropdown()">
-                                    <option value="">Select City/Municipality</option>
-                                </select>                            
-                            </div>
-
-                            <div class="form__group">
-                                <label for="barangay">Barangay*</label>
-                                <select id="barangay">
+                                <label for="premium-barangay">Barangay*</label>
+                                <select id="premium-barangay">
                                     <option value="">Select Barangay</option>
                                 </select>
                             </div>
@@ -292,18 +442,17 @@
                     </div>
 
                     <div class="form__login">
-                        <button class="btn btn-danger">LOGIN</button>
+                        <button class="btn btn-danger">Pay Now</button>
                     </div>
                 </div>
             </div>
-
-
+        </div>
     </main>
 
 
     <!-- Footer -->
     <footer>
-        <div class="footer-content">
+        <div class="footer-content" data-aos="fade-up">
             <!-- Icons -->
             <div class="footer-icons-content">
                 <div class="footer-icons">
@@ -363,4 +512,8 @@
     </footer>
 </html>
      <script src="/js/pages/membership.js"></script>
+     <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+     <script>
+       AOS.init();
+     </script>
 </body>

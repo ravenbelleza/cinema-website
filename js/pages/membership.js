@@ -648,21 +648,24 @@ const data = {
       "Barangay San Jose", "Barangay San Pedro"
     ]
   }
+  // add nalang iba if kaya hahaha
 };
-// add nalang iba if kaya hahaha
 
-const provinceDropdown = document.getElementById('province');
-const cityDropdown = document.getElementById('city');
-const barangayDropdown = document.getElementById('barangay');
-
-for (let province in data) {
-  const option = document.createElement('option');
-  option.value = province;
-  option.text = province;
-  provinceDropdown.add(option);
+function initializeProvinceDropdown(formType) {
+  const provinceDropdown = document.getElementById(`${formType}-province`);
+  for (let province in data) {
+      const option = document.createElement('option');
+      option.value = province;
+      option.text = province;
+      provinceDropdown.add(option);
+  }
 }
 
-function updateCityDropdown() {
+function updateCityDropdown(formType) {
+  const provinceDropdown = document.getElementById(`${formType}-province`);
+  const cityDropdown = document.getElementById(`${formType}-city`);
+  const barangayDropdown = document.getElementById(`${formType}-barangay`);
+
   cityDropdown.innerHTML = '<option value="">Select City/Municipality</option>';
   barangayDropdown.innerHTML = '<option value="">Select Barangay</option>';
 
@@ -677,29 +680,61 @@ function updateCityDropdown() {
   }
 }
 
-function updateBarangayDropdown() {
+function updateBarangayDropdown(formType) {
+  const provinceDropdown = document.getElementById(`${formType}-province`);
+  const cityDropdown = document.getElementById(`${formType}-city`);
+  const barangayDropdown = document.getElementById(`${formType}-barangay`);
+
   barangayDropdown.innerHTML = '<option value="">Select Barangay</option>';
 
   const selectedProvince = provinceDropdown.value;
   const selectedCity = cityDropdown.value;
   if (selectedProvince && selectedCity && data[selectedProvince][selectedCity]) {
       data[selectedProvince][selectedCity].forEach(barangay => {
-          const option = document.createElement('option');
-          option.value = barangay;
-          option.text = barangay;
-          barangayDropdown.add(option);
-      });
+        const option = document.createElement('option');
+        option.value = barangay;
+        option.text = barangay;
+        barangayDropdown.add(option);
+    });
   }
 }
 
+initializeProvinceDropdown('basic');
+initializeProvinceDropdown('premium');
+
+
 // Signup
 function toggleContainers() {
-  const membershipContainer = document.querySelector('.membership-container');
-  const basicForm = document.querySelector('.basic-form');
-  
-  // Hide the membership container
-  membershipContainer.style.display = 'none';
-  
-  // Show the basic form container
-  basicForm.style.display = 'block';
+const membershipContainer = document.querySelector('.membership-container');
+const basicForm = document.querySelector('.basic-form');
+membershipContainer.style.display = 'none';
+basicForm.style.display = 'block';
 }
+
+
+// Navigation Tabs
+const basicTab = document.getElementById('basic-member');
+const premiumTab = document.getElementById('premium-member');
+const basicForm = document.querySelector('.basic__form');
+const premiumForm = document.querySelector('.premium-form');
+
+function showBasicForm() {
+  basicTab.classList.add('active');
+  basicTab.classList.remove('inactive');
+  premiumTab.classList.add('inactive');
+  premiumTab.classList.remove('active');
+  basicForm.style.display = 'block';
+  premiumForm.style.display = 'none';
+}
+
+function showPremiumForm() {
+  premiumTab.classList.add('active');
+  premiumTab.classList.remove('inactive');
+  basicTab.classList.add('inactive');
+  basicTab.classList.remove('active');
+  premiumForm.style.display = 'block';
+  basicForm.style.display = 'none';
+}
+
+basicTab.addEventListener('click', showBasicForm);
+premiumTab.addEventListener('click', showPremiumForm);
